@@ -1,21 +1,20 @@
 {
-  "name": "pkg-name",
+  "name": "@winches/o2c",
   "type": "module",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "",
   "author": "winches",
   "license": "MIT",
   "keywords": [],
   "sideEffects": false,
   "bin": {
-    "ts-start": "dist/cli.js"
+    "vue-o2c": "dist/cli.js"
   },
   "scripts": {
-    "prepare": "simple-git-hooks",
     "prepublishOnly": "npm run build",
     "dev": "tsup --watch",
     "build": "tsup-node",
-    "start": "tsx src/index.ts",
+    "start": "tsx src/cli.ts",
     "lint": "eslint --cache --ext ts,tsx,vue .",
     "changelog": "npx conventional-changelog -p angular -i CHANGELOG.md -s && git add .",
     "release": "bumpp --execute=\"nr changelog\" --all && npm publish"
@@ -46,20 +45,23 @@
     "registry": "https://registry.npmjs.org/"
   },
   "dependencies": {
+    "@vue/compiler-dom": "^3.3.4",
+    "@winches/utils": "^0.0.8",
     "chalk": "^5.2.0",
     "commander": "^10.0.0",
     "inquirer": "^9.1.4",
-    "@winches/utils": "^0.0.8"
+    "prettier": "^3.0.3",
+    "vue-o2c": "0.1.26"
   },
   "devDependencies": {
-    "@types/inquirer": "^9.0.3",
     "@antfu/eslint-config": "^0.40.0",
+    "@types/inquirer": "^9.0.3",
     "@types/node": "^18.7.18",
     "eslint": "^8.46.0",
-    "tsx": "^3.12.7",
     "lint-staged": "^13.1.2",
     "simple-git-hooks": "^2.8.1",
     "tsup": "^7.2.0",
+    "tsx": "^3.12.7",
     "typescript": "^5.1.6"
   },
   "simple-git-hooks": {
